@@ -247,16 +247,69 @@ public class ChatterboxClient {
         });
         Thread sendChats = new Thread(() -> {
             try {
-                sendOutgoingChats();
+                sendOutgoingChats("FUCK");
             } catch (IOException e) {
                 System.err.println("Disconnected");
             } finally {
                 System.exit(1);
             }
         });
+        Thread sendChats2 = new Thread(() -> {
+            try {
+                sendOutgoingChats("SHIT");
+            } catch (IOException e) {
+                System.err.println("Disconnected");
+            } finally {
+                System.exit(1);
+            }
+        });
+        Thread sendChats3 = new Thread(() -> {
+            try {
+                sendOutgoingChats("DAMN");
+            } catch (IOException e) {
+                System.err.println("Disconnected");
+            } finally {
+                System.exit(1);
+            }
+        });
+        Thread sendChats4 = new Thread(() -> {
+            try {
+                sendOutgoingChats("ASS");
+            } catch (IOException e) {
+                System.err.println("Disconnected");
+            } finally {
+                System.exit(1);
+            }
+        });
+        Thread sendChats5 = new Thread(() -> {
+            try {
+                sendOutgoingChats("FUCKER");
+            } catch (IOException e) {
+                System.err.println("Disconnected");
+            } finally {
+                System.exit(1);
+            }
+        });
+        Thread sendChats6 = new Thread(() -> {
+            try {
+                sendOutgoingChats("DAMN");
+            } catch (IOException e) {
+                System.err.println("Disconnected");
+            } finally {
+                System.exit(1);
+            }
+        });
+        
+        
+        
 
         printChats.start();
         sendChats.start();
+        sendChats2.start();
+        sendChats3.start();
+        sendChats4.start();
+        sendChats5.start();
+        sendChats6.start();
     }
 
     /**
@@ -301,13 +354,13 @@ public class ChatterboxClient {
      * - If writing fails (IOException), the connection is gone:
      *   print a message to userOutput and exit.
      */
-    public void sendOutgoingChats() throws IOException{
+    public void sendOutgoingChats(String line) throws IOException{
         // Use the userInput to read, NOT System.in directly
         // loop forever reading user input
         // write to serverOutput
-        String line;
+        //String line;
         while(true){
-            line = userInput.nextLine();
+            //line = userInput.nextLine();
             try{
                 serverWriter.write(line);
                 serverWriter.newLine();
